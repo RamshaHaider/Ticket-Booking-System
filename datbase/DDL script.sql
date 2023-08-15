@@ -1,24 +1,28 @@
 create database ttbs;
-use ttbs;
 
 create table loginTable(
 loginId int primary key auto_increment,
-UserId int not null,
 UserName varchar(255) not null,
 Pword varchar(20) not null,
 Token varchar(20) unique,
-AutherizationType varchar(6),
-foreign key(UserId) references userDetailsTable(User_Id)
+AutherizationType varchar(6)
 );
 
 create table userDetailsTable(
-User_Id int primary key auto_increment,
+UserId int primary key auto_increment,
+loginId int,
 FName varchar(255) not null,
 LName varchar(255) ,
-Phone int unique not null,
+Phone  varchar(25) unique not null,
 email varchar(255) unique,
-city varchar(25) 
+city varchar(25),
+foreign key(loginId) references loginTable(loginId)
 );
+
+
+drop table userDetailsTable;
+drop table logintable;
+
 
 create table ScreenDetails(
 ScreenDetails_Id int primary key auto_increment,
@@ -74,3 +78,6 @@ Booking_Id int,
 Seat_no int,
 foreign key(Booking_Id) references BookingDetails(BookingId)
 );
+
+select * from userdetailstable;
+select * from logintable;
