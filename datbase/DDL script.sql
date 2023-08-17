@@ -3,7 +3,7 @@ use ttbs;
 create table loginTable(
 loginId int primary key auto_increment,
 UserName varchar(255) not null,
-Pword varchar(255) not null,
+Pword varchar(1048) not null,
 Token varchar(20) unique,
 AutherizationType varchar(6)
 );

@@ -1,14 +1,15 @@
 package com.ramsha.TicketBookingApp.controller;
 
-import org.springframework.web.bind.annotation.RestController;
-
-import com.ramsha.TicketBookingApp.service.AppService;
-
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ramsha.TicketBookingApp.dto.UserDetailsDto;
+import com.ramsha.TicketBookingApp.service.AppService;
 
 @RestController
 public class AppController {
@@ -21,12 +22,12 @@ public class AppController {
         
     }
     
-    @GetMapping("/signup")
-    public String userSignup (@RequestParam String fname, String lname, String phone, String username, String password) throws SQLException{
+    @PostMapping("/signup")
+    public String userSignup (@RequestBody UserDetailsDto userDetailsDto) throws SQLException{
     	
-    	String response = appService.signup(fname, lname, phone, username, password);
+    	UserDetailsDto response = appService.signup(userDetailsDto);
     	
-        return "You've signed up successfully!" + response;
+        return "You've signed up successfully!!!" + response.toString();
     }
     
     
