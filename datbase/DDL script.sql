@@ -1,5 +1,5 @@
 create database ttbs;
-
+use ttbs;
 create table loginTable(
 loginId int primary key auto_increment,
 UserName varchar(255) not null,
@@ -19,9 +19,6 @@ city varchar(25),
 foreign key(loginId) references loginTable(loginId)
 );
 
-
-drop table userDetailsTable;
-drop table logintable;
 
 
 create table ScreenDetails(
@@ -78,6 +75,3 @@ Booking_Id int,
 Seat_no int,
 foreign key(Booking_Id) references BookingDetails(BookingId)
 );
-
-select * from userdetailstable;
-select * from logintable;
