@@ -3,7 +3,7 @@ use ttbs;
 create table loginTable(
 loginId int primary key auto_increment,
 UserName varchar(255) not null,
-Pword varchar(20) not null,
+Pword varchar(255) not null,
 Token varchar(20) unique,
 AutherizationType varchar(6)
 );
@@ -18,8 +18,6 @@ email varchar(255) unique,
 city varchar(25),
 foreign key(loginId) references loginTable(loginId)
 );
-
-
 
 create table ScreenDetails(
 ScreenDetails_Id int primary key auto_increment,
