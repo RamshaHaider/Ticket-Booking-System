@@ -2,6 +2,7 @@ package com.ramsha.TicketBookingApp.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.stereotype.Repository;
@@ -21,7 +22,12 @@ public class AppDao {
 			pst.setString(4, userDetailsDto.getPhone());
 			pst.setString(5, null);
 			pst.setString(6, null);
-			userId = pst.executeUpdate();
+			pst.executeUpdate();
+			try(ResultSet rs = pst.getGeneratedKeys()){
+				if(rs.next()) {
+					userId = rs.getInt(1);
+				}
+			}
 			userDetailsDto.setUserId(userId);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -36,7 +42,12 @@ public class AppDao {
 			pst.setString(2, userDetailsDto.getPassword());
 			pst.setString(3, null);
 			pst.setString(4, null);
-			loginId = pst.executeUpdate();
+			pst.executeUpdate();
+			try(ResultSet rs = pst.getGeneratedKeys()){
+				if(rs.next()) {
+					loginId = rs.getInt(1);
+				}
+			}
 			userDetailsDto.setLoginId(loginId);
 
 		} catch (SQLException e) {

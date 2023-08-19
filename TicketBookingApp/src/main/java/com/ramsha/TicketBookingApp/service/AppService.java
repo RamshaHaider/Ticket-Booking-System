@@ -27,6 +27,7 @@ public class AppService {
 			appDao.createLoginDetails(connection, userDetailsDto);
 			appDao.createUserDetails(connection, userDetailsDto);
 			connection.commit();
+			userDetailsDto.setPassword("********");
 		}
 		return userDetailsDto;
 	}
