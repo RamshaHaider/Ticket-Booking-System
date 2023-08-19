@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "ae5ea2a4-eeec-4ce2-a8e0-b2c687c2a4b8",
+		"name": "PostmanCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "748187"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8081/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fname\" : \"test1\",\r\n    \"lname\" : \"test2\",\r\n    \"phone\" : 1122334,\r\n    \"username\" : \"test3\",\r\n    \"password\" : \"test4\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
